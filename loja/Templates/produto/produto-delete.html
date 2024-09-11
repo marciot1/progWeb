@@ -16,15 +16,15 @@
             </div>
             <div class="row">
                 <div class="col-md-2">
-                {% if produto.destaque %}
+                    {% if produto.destaque %}
                     <input type="checkbox" checked name="destaque" disabled>
-                {% else %}
+                    {% else %}
                     <input type="checkbox" name="destaque" disabled>
-                {% endif %}
+                    {% endif %}
                     <label for="destaque">Destaque</label>
                 </div>
             </div>
-                <div class="row">
+            <div class="row">
                 <div class="col-md-2">
                     {% if produto.promocao %}
                     <input type="checkbox" checked name="promocao" disabled>
@@ -39,13 +39,13 @@
                 <input value="{{produto.msgPromocao}}" name="msgPromocao" disabled>
             </div>
             <div class="row">
-                            <button type="submit" class="btn btn-danger col-md-2 mt-3 mr-2"><i class="fafa-check"></i> Excluir</button>
-                <a href={% url 'produto' %} class="btn bg-secondary col-md-2 mt-3"><i class="fafa-rotate-left"></i> Retornar</a>
+                <button type="submit" class="btn btn-danger col-md-2 mt-3 mr-2"><i class="fa fa-check"></i> Excluir</button>
+                <a class="btn bg-secondary col-md-2 mt-3"><i class="fa fa-rotate-left"></i> Retornar</a>
             </div>
         </form>
     </div>
 </div>
 {% endblock %}
 {% block scripts %}
-<script src="{% static 'js/home.js' %}"></script>
+    <script src="{% static 'js/home.js' %}"></script>
 {% endblock %}

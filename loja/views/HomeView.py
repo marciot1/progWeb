@@ -8,6 +8,4 @@ def home_view(request):
   context = {
     'produtos': produtos
   }
-def home_view(request):
   return render(request, template_name='home/home.html', context=context, status=200)
-  
