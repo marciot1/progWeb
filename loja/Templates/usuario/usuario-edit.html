@@ -8,6 +8,11 @@
     <div class="container-fluid">
         <div class="row">
             <form class="col-md-6 col-lg-4 offset-md-3 offset-lg-4" method="POST" action="">
+                <!-- Adicione as linhas a seguir -->
+                {% if message is not None %}
+                <div class="alert alert-{{ message.type }}">{{ message.text }}</div>
+                {% endif %}
+                <!-- Até aqui -->
                 <div class="row">
                     {% csrf_token %}
                     <!-- Adicione o userForm antes do usuarioForm -->
@@ -16,6 +21,11 @@
                     <div class="form-group col-md-6">
                         {{ f.label }}
                         {{ f }}
+                        <!-- Adicione as linhas a seguir -->
+                        {% for error in f.errors %}
+                        <div class="invalid-feedback" style="display: initial;">{{ error }}</div>
+                        {% endfor %}
+                        <!-- Até aqui -->
                     </div>
                     {% else %}
                     {{ f }}
@@ -23,16 +33,23 @@
                     {% endfor %}
                     <!-- Até aqui -->
                     {% for f in usuarioForm %}
-                        {% if not f.is_hidden %}
-                            <div class="form-group col-md-6">
-                                {{ f.label }}
-                                {{ f }}
-                            </div>
-                        {% else %}
+                    {% if not f.is_hidden %}
+                    <div class="form-group col-md-6">
+                        {{ f.label }}
                         {{ f }}
-                        {% endif %}
+                        <!-- Adicione a linha a seguir -->
+                        {% for error in f.errors %}
+                        <div class="invalid-feedback" style="display: initial;">{{ error }}</div>
+                        {% endfor %}
+                        <!-- Até aqui -->
+                    </div>
+                    {% else %}
+                    {{ f }}
+                    {% endif %}
                     {% endfor %}
                 </div>
+                <!-- Adicione antes do fechamento do form-->
+                <button type="submit" class="btn btn-primary">Salvar</button>
             </form>
         </div>
     </div>
