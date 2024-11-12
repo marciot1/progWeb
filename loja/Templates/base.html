@@ -7,7 +7,8 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="{% static 'css/global.css' %}">
-    {% block styles %}{% endblock %}
+    {% block styles %}
+    {% endblock %}
     <title>Loja - {% block title %}{% endblock %}</title>
 </head>
 <body>
@@ -19,12 +20,13 @@
                 <li class="nav-item"><a class="nav-link" href="/fabricante"><i class="fa fa-book"></i>Fabricante</a></li>
                 <li class="nav-item"><a class="nav-link" href="/produto"><i class="fa fa-book"></i>Produto</a></li>
                 <!--inclua o botão de acesso ao cadastro de usuário-->
-                <li class="nav-item"><a class="nav-link" href="/usuario"><i class="fa fa-book"></i>Usuário</a></li>
-                <li class="nav-item"><a class="nav-link" href="/Entrar"><i class="fa fa-sign-in"></i>Entrar</a></li>
-                <li class="nav-item"><a class="nav-link" href="/Registrar"><i class="fa fa-edit"></i>Registrar</a></li>
+                <li class="nav-item"><a class="nav-link" href="/usuario"><i class="fa fa-book"></i> Usuário</a></li>
+                    
+                    <li class="nav-item"><a class="nav-link" href="/login"><i class="fa fa-sign-in"></i>Entrar</a></li>
+                    
+                    <li class="nav-item"><a class="nav-link" href="registrar"><i class="fa fa-edit"></i>Registrar</a></li>
             </ul>
         </nav>
-       
     </header>
     {% block content %}{% endblock %}
     <footer>

@@ -23,7 +23,10 @@ from django.conf.urls import include
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('loja.urls.HomeUrls')),
-    path('produto/', include('loja.urls.ProdutoUrls')),
     # Adicione a linha a seguir
+    path('', include('loja.urls.AuthUrls')),
+    # Até aqui
+    path('produto/', include('loja.urls.ProdutoUrls')),
     path('usuario/', include('loja.urls.UsuarioUrls')),
-]  + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT) + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT) + static(settings.MEDIA_URL,
+document_root=settings.MEDIA_ROOT)
