@@ -1,9 +1,8 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth import authenticate, login
-# Adicione o import abaixo
 from django.contrib.auth.models import User
-# Adicione no import a seguir a classe RegisterForm
 from loja.forms.AuthForm import LoginForm, RegisterForm
+
 def login_view(request):
     loginForm = LoginForm()
     message = None
@@ -35,7 +34,6 @@ def register_view(request):
         password = request.POST['password']
         registerForm = RegisterForm(request.POST)
         if registerForm.is_valid():
-        # Aqui verificamos se existe usuário ou e-mail com esse cadastro
             verifyUsername = User.objects.filter(username=username).first()
             verifyEmail = User.objects.filter(email=email).first()
         if verifyUsername is not None:
